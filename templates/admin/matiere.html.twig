@@ -1,0 +1,81 @@
+
+
+<div class="container-fluid">
+    <div class="d-sm-flex justify-content-between align-items-center mb-4">
+        <h3 class="text-dark mb-0">MATIERE</h3>
+    </div>
+    <div class="row">
+        <div class="col-md-12 search-table-col">
+            <div class="row">
+                <div class="col-2" ><button class="btn btn-primary" id="btnAddMat" >Ajouter</button></div>
+                <div class="col-2"><button class="btn btn-warning" type="button" >Modifier</button></div>
+                <div class="col-2"><button class="btn btn-dark" type="button" >Supprimer</button></div>
+                <div class="col-4 offset-2"><input type="text" class="search form-control" placeholder="Search by typing here.."></div>
+            </div><span class="counter pull-right"></span>
+            <div class="table-responsive table-bordered table table-hover table-bordered results">
+                <table class="table table-bordered table-hover">
+                    <thead class="bill-header cs">
+                    <tr>
+                        <th id="trs-hd" class="col-lg-1"></th>
+                        <th id="trs-hd" class="col-lg-2">Libellé&nbsp;</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="warning no-result">
+                        <td colspan="12"><i class="fa fa-warning"></i>&nbsp; No Result !!!</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>India</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Olonunu</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 search-table-col"><span class="counter pull-right"></span>
+            <form   method="post" action="" id="formAddMatiere">
+                <div class="container d-flex bg-white">
+                    <div class="p-2 m-2">
+                        <div class="form-group">
+                            <label>Code : </label>
+                            <input class="form-control" type="text" id="aicodmat">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="container d-flex bg-white">
+                    <div class="p-2 m-2">
+                        <div class="form-group">
+                            <label>Libellé : </label>
+                            <input class="form-control" type="text" id="ailibmat">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="container d-flex bg-white justify-content-end">
+                    <div class="p-2 m-2">
+                        <button class="btn btn-primary ladda-button" id="btnAddMatiere" type="submit" ladda="loading">
+                            <span class="ladda-label">
+                                <span>Enregistrer</span>
+                            </span>
+                        </button>
+                        <button class="btn btn-success ladda-button" type="reset" id="razAddMatiere" ladda="loading">
+                            <span class="ladda-label">
+                                <i class="icon-done-all"></i>
+                                <span>Annuler</span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>

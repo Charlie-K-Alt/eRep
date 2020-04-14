@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Matieres -> Nouveau {% endblock %}
+
+{% block contenuMatiere %}
+
+    {{ include('matieres/_form.html.twig') }}
+
+    <a class="btn btn-outline-primary bg-gradient-info" href="{{ path('matieres_index') }}"><- Retour </a>
+{% endblock %}

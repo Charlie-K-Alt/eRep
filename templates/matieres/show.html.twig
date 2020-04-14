@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Matieres{% endblock %}
+
+{% block contenuMatiere %}
+
+<div class="table-responsive table-bordered table table-hover table-bordered results long75pc ">
+    <table class="table table-bordered table-hover ">
+        <tbody>
+
+            <tr>
+                <th>Codmat</th>
+                <td>{{ matiere.codmat }}</td>
+            </tr>
+            <tr>
+                <th>Libelle</th>
+                <td>{{ matiere.libelle }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-primary bg-gradient-info" href="{{ path('matieres_index') }}"><- Retour </a>
+
+
+</div>
+    {#{{ include('matieres/_delete_form.html.twig') }}#}
+{% endblock %}
