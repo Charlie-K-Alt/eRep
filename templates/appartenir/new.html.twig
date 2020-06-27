@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Appartenir{% endblock %}
+
+{% block contenuAppartenir %}
+
+    {{ include('appartenir/_form.html.twig') }}
+
+    <a class="btn btn-outline-primary bg-gradient-info" href="{{ path('niveaux_index') }}"><- Retour </a>
+{% endblock %}

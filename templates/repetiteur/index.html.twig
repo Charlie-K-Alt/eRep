@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Repetiteur index{% endblock %}
+
+{% block contenuRepetiteur %}
+
+<div class="row long75pc">
+    <div class="col-md-12 search-table-col">
+        <div class="row">
+            <div class="col-2" ><a class="btn btn-primary" id="btnAddMat" href="{{ path('repetiteur_new') }}">Ajouter</a></div>
+            <div class="col-2"></div> <div class="col-2"></div>
+            <div class="col-4 offset-2"><input type="text" class="search form-control" placeholder="Search by typing here.."></div>
+        </div><span class="counter pull-right"></span>
+        <div class="table-responsive table-bordered table table-hover table-bordered results ">
+            <table class="table table-bordered table-hover ">
+                <thead class="bill-header cs">
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prenoms</th>
+                        <th>Telephone</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                        <th>Diplome</th>
+                        <th>Adresse</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for repetiteur in repetiteurs %}
+                    <tr>
+                        <td>{{ repetiteur.nom }}</td>
+                        <td>{{ repetiteur.prenoms }}</td>
+                        <td>{{ repetiteur.telephone }}</td>
+                        <td>{{ repetiteur.email }}</td>
+                        <td>{{ repetiteur.password }}</td>
+                        <td>{{ repetiteur.diplome }}</td>
+                        <td>{{ repetiteur.adresse }}</td>
+                        <td style="width: 21%;">
+                            <span class="long7pc"><a href="{{ path('repetiteur_show', {'id': repetiteur.id}) }}"><i class="fas fa-file-alt fa-lg"></i></a></span>
+                            <span  class="long7pc"><a href="{{ path('repetiteur_edit', {'id': repetiteur.id}) }}"><i class="fas fa-edit fa-lg"></i></a></span>
+                            <span  class="long7pc"><a href=""><i class="fas fa-trash fa-lg"></i></a></span>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="9">Pas de résultat</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+             </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Apprenants{% endblock %}
+
+{% block contenuApprenant %}
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ apprenant.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ apprenant.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenoms</th>
+                <td>{{ apprenant.prenoms }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ apprenant.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ apprenant.email }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ apprenant.password }}</td>
+            </tr>
+            <tr>
+                <th>Pseudo</th>
+                <td>{{ apprenant.pseudo }}</td>
+            </tr>
+            <tr>
+                <th>Datenaissance</th>
+                <td>{{ apprenant.datenaissance ? apprenant.datenaissance|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Sexe</th>
+                <td>{{ apprenant.sexe }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-primary bg-gradient-info" href="{{ path('apprenants_index') }}"><- Retour </a>
+
+
+    {{ include('apprenants/_delete_form.html.twig') }}
+{% endblock %}

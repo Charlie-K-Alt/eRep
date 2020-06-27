@@ -5,6 +5,22 @@ $(document).ready(function(){
 	 * Permet de cacher le button inscription
 	 */
 	moncac (["#btnInsc"], "");
+
+	$("#menumatiere").click(function(){
+		$.getJSON("http://127.0.0.1:8001/api/matieres", function( data ) {
+			var items = [];
+			$.each(data, function (key, tab) {
+				items.push("<li id='" + key + "'>" + tab['codmat']+ ":" + tab['libelle'] + "</li>");
+				//console.log(key + "->" + tab['codmat']+ ":" + tab['libelle']);
+			});
+
+			$("<ul/>", {
+				"class": "my-new-list",
+				html: items.join("")
+			}).appendTo("body");
+		});
+		//console.log(sendAjaxRequest("POST", "http://127.0.0.1:8001/api/matieres", '', 'application/json'));
+	});
 	/**
 	 * Cacher le button inscription au niveau de parent
 	 */
@@ -45,3 +61,19 @@ $(document).ready(function(){
 	});
 
 });
+
+function sendAjaxRequest(method, url, data, contentType) {
+    var response;
+    $.ajax({
+        method: method,
+        url: url,
+        data: data,
+        dataType: 'json',
+        contentType: contentType,
+        success: function(msg) {
+            response = msg;
+        }
+    });
+    return response;
+    //return jQuery.parseJSON(response);
+}

@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscriptions{% endblock %}
+
+{% block contenuInscription %}
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ inscription.id }}</td>
+            </tr>
+            <tr>
+                <th>Dateins</th>
+                <td>{{ inscription.dateins ? inscription.dateins|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Frais</th>
+                <td>{{ inscription.frais }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-primary bg-gradient-info" href="{{ path('inscriptions_index') }}"><- Retour </a>
+
+
+    {{ include('inscriptions/_delete_form.html.twig') }}
+{% endblock %}

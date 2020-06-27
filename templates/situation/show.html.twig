@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Situation{% endblock %}
+
+{% block contenuSituation %}
+
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ situation.id }}</td>
+            </tr>
+            <tr>
+                <th>TitreSa</th>
+                <td>{{ situation.titreSa }}</td>
+            </tr>
+            <tr>
+                <th>ContenuSa</th>
+                <td>{{ situation.contenuSa }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-primary bg-gradient-info" href="{{ path('situation_index') }}"><- Retour </a>
+
+
+    {{ include('situation/_delete_form.html.twig') }}
+{% endblock %}

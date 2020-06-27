@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Parents -> Nouveau {% endblock %}
+
+{% block contenuParent %}
+
+
+    {{ include('parents/_form.html.twig') }}
+
+    <a class="btn btn-outline-primary bg-gradient-info" href="{{ path('parents_index') }}"><- Retour </a>
+{% endblock %}

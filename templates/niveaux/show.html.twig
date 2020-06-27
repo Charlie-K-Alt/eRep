@@ -1,9 +1,8 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Niveaux{% endblock %}
+{% block title %}Niveaux -> Détail{% endblock %}
 
-{% block body %}
-    <h1>Niveaux</h1>
+{% block contenuNiveaux %}
 
     <table class="table">
         <tbody>
@@ -16,15 +15,14 @@
                 <td>{{ niveau.code }}</td>
             </tr>
             <tr>
-                <th>Libelle</th>
+                <th>Libellé</th>
                 <td>{{ niveau.libelle }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('niveaux_index') }}">back to list</a>
+    <a class="btn btn-outline-primary bg-gradient-info" href="{{ path('niveaux_index') }}"><- Retour </a>
 
-    <a href="{{ path('niveaux_edit', {'id': niveau.id}) }}">edit</a>
 
     {{ include('niveaux/_delete_form.html.twig') }}
 {% endblock %}

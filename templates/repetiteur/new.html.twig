@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Repetiteur -> Nouveau {% endblock %}
+
+{% block contenuRepetiteur %}
+
+
+    {{ include('repetiteur/_form.html.twig') }}
+
+    <a class="btn btn-outline-danger bg-gradient-info" href="{{ path('repetiteur_index') }}"><- Retour </a>
+{% endblock %}

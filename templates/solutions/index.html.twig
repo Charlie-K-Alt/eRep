@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Solutions index{% endblock %}
+
+{% block contenuSolution %}
+
+<div class="row long75pc">
+    <div class="col-md-12 search-table-col">
+        <div class="row">
+            <div class="col-2" ><a class="btn btn-primary" id="btnAddMat" href="{{ path('solutions_new') }}">Ajouter</a></div>
+            <div class="col-2"></div> <div class="col-2"></div>
+            <div class="col-4 offset-2"><input type="text" class="search form-control" placeholder="Search by typing here.."></div>
+        </div><span class="counter pull-right"></span>
+        <div class="table-responsive table-bordered table table-hover table-bordered results ">
+            <table class="table table-bordered table-hover ">
+                <thead class="bill-header cs">
+                    <tr>
+                        <th>Contenu</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for solution in solutions %}
+                    <tr>
+                        <td>{{ solution.contenu }}</td>
+                        <td style="width: 21%;">
+                            <span class="long7pc"><a href="{{ path('solutions_show', {'id': solution.id}) }}"><i class="fas fa-file-alt fa-lg"></i></a></span>
+                            <span  class="long7pc"><a href="{{ path('solutions_edit', {'id': solution.id}) }}"><i class="fas fa-edit fa-lg"></i></a></span>
+                            <span  class="long7pc"><a href=""><i class="fas fa-trash fa-lg"></i></a></span>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="3">Pas de résultat</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

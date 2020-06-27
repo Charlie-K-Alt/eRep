@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Appartenir{% endblock %}
+
+{% block body %}
+    <h1>Edit Appartenir</h1>
+
+    {{ include('appartenir/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('appartenir_index') }}">back to list</a>
+
+    {{ include('appartenir/_delete_form.html.twig') }}
+{% endblock %}

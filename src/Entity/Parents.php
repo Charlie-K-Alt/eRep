@@ -3,13 +3,19 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\ParentsRepository")
+ * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
  */
-class Parents
+class Parents implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -37,6 +43,23 @@ class Parents
      * @ORM\Column(type="string", length=30)
      */
     private $email;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Apprenants", mappedBy="parent")
+     */
+    private $apprenants;
+
+    public $role;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $password;
+
+    public function __construct()
+    {
+        $this->apprenants = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -89,5 +112,71 @@ class Parents
         $this->email = $email;
 
         return $this;
+    }
+
+    /**
+     * @return Collection|Apprenants[]
+     */
+    public function getApprenants(): Collection
+    {
+        return $this->apprenants;
+    }
+
+    public function addApprenant(Apprenants $apprenant): self
+    {
+        if (!$this->apprenants->contains($apprenant)) {
+            $this->apprenants[] = $apprenant;
+            $apprenant->setParent($this);
+        }
+
+        return $this;
+    }
+
+    public function removeApprenant(Apprenants $apprenant): self
+    {
+        if ($this->apprenants->contains($apprenant)) {
+            $this->apprenants->removeElement($apprenant);
+            // set the owning side to null (unless already changed)
+            if ($apprenant->getParent() === $this) {
+                $apprenant->setParent(null);
+            }
+        }
+
+        return $this;
+    }
+    public function __toString()
+    {
+        // Permet que Apprenant récupère l'id du Parent
+        return $this->nom." ".$this->prenom;
+    }
+
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    public function getSalt()
+    {
+        // TODO: Implement getSalt() method.
+    }
+    public function eraseCredentials()
+    {
+        // TODO: Implement eraseCredentials() method.
+    }
+    public function getUsername()
+    {
+        // TODO: Implement getUsername() method.
+    }
+    public function getRoles()
+    {
+        // TODO: Implement getRoles() method.
+        return $roles=["ROLE_PARENT"];
     }
 }

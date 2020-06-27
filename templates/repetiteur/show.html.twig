@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Repetiteur{% endblock %}
+
+{% block contenuRepetiteur %}
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ repetiteur.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ repetiteur.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenoms</th>
+                <td>{{ repetiteur.prenoms }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ repetiteur.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ repetiteur.email }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ repetiteur.password }}</td>
+            </tr>
+            <tr>
+                <th>Diplome</th>
+                <td>{{ repetiteur.diplome }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ repetiteur.adresse }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-primary bg-gradient-info" href="{{ path('repetiteur_index') }}"><- Retour </a>
+
+
+    {{ include('repetiteur/_delete_form.html.twig') }}
+{% endblock %}

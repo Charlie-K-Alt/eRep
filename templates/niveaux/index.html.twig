@@ -1,37 +1,45 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Niveaux index{% endblock %}
+{% block title %}Niveaux {% endblock %}
 
-{% block body %}
-    <h1>Niveaux index</h1>
+{% block contenuNiveaux %}
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Code</th>
-                <th>Libelle</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for niveau in niveauxes %}
-            <tr>
-                <td>{{ niveau.id }}</td>
-                <td>{{ niveau.code }}</td>
-                <td>{{ niveau.libelle }}</td>
-                <td>
-                    <a href="{{ path('niveaux_show', {'id': niveau.id}) }}">show</a>
-                    <a href="{{ path('niveaux_edit', {'id': niveau.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div class="row long75pc">
+        <div class="col-md-12 search-table-col">
+            <div class="row">
+                <div class="col-2" ><a class="btn btn-primary" id="btnAddMat" href="{{ path('niveaux_new') }}">Ajouter</a></div>
+                <div class="col-2"></div> <div class="col-2"></div>
+                <div class="col-4 offset-2"><input type="text" class="search form-control" placeholder="Search by typing here.."></div>
+            </div><span class="counter pull-right"></span>
+            <div class="table-responsive table-bordered table table-hover table-bordered results ">
+                <table class="table table-bordered table-hover ">
+                    <thead class="bill-header cs">
+                        <tr>
+                            <th>Code</th>
+                            <th>Libellé</th>
+                            <th>actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for niveau in niveauxes %}
+                        <tr>
+                            <td>{{ niveau.code }}</td>
+                            <td>{{ niveau.libelle }}</td>
+                            <td style="width: 21%;">
+                                <span class="long7pc"><a href="{{ path('niveaux_show', {'id': niveau.id}) }}"><i class="fas fa-file-alt fa-lg"></i></a></span>
+                                <span  class="long7pc"><a href="{{ path('niveaux_edit', {'id': niveau.id}) }}"><i class="fas fa-edit fa-lg"></i></a></span>
+                                <span  class="long7pc"><a href=""><i class="fas fa-trash fa-lg"></i></a></span>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="3">Pas de résultat</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
-    <a href="{{ path('niveaux_new') }}">Create new</a>
 {% endblock %}

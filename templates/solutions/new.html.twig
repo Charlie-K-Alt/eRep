@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Solutions -> Nouveau {% endblock %}
+
+{% block contenuSolution %}
+
+
+    {{ include('solutions/_form.html.twig') }}
+
+    <a class="btn btn-outline-primary bg-gradient-info" href="{{ path('solutions_index') }}"><- Retour </a>
+{% endblock %}

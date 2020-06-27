@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Apprenants -> Nouveau{% endblock %}
+
+{% block contenuApprenant %}
+
+
+    {{ include('apprenants/_form.html.twig') }}
+
+    <a class="btn btn-outline-primary bg-gradient-info" href="{{ path('apprenants_index') }}"><- Retour </a>
+{% endblock %}

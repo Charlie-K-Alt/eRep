@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Utilisateurs -> Nouveau {% endblock %}
+
+{% block contenuUtilisateur %}
+
+
+    {{ include('utilisateurs/_form.html.twig') }}
+
+    <a class="btn btn-outline-danger bg-gradient-info" href="{{ path('utilisateurs_index') }}"><- Retour </a>
+{% endblock %}

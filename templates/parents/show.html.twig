@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Parents{% endblock %}
+
+{% block contenuParent %}
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ parent.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ parent.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ parent.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Tel</th>
+                <td>{{ parent.tel }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ parent.email }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-primary bg-gradient-info" href="{{ path('parents_index') }}"><- Retour </a>
+
+
+    {{ include('parents/_delete_form.html.twig') }}
+{% endblock %}

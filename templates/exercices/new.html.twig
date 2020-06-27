@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Exercices -> Nouveau {% endblock %}
+
+{% block contenuExercice %}
+
+
+    {{ include('exercices/_form.html.twig') }}
+
+    <a class="btn btn-outline-dark bg-gradient-info" href="{{ path('exercices_index') }}"><- Retour </a>
+{% endblock %}

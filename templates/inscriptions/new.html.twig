@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Inscriptions -> Nouveau {% endblock %}
+
+{% block contenuInscription %}
+
+
+    {{ include('inscriptions/_form.html.twig') }}
+
+    <a class="btn btn-outline-primary bg-gradient-info" href="{{ path('inscriptions_index') }}"><- Retour </a>
+{% endblock %}

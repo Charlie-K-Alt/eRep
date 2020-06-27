@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Appartenir{% endblock %}
+
+{% block body %}
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ appartenir.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-primary bg-gradient-info" href="{{ path('appartenir_index') }}"><- Retour </a>
+
+
+    {{ include('appartenir/_delete_form.html.twig') }}
+{% endblock %}

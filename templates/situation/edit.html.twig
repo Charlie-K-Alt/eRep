@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Situation{% endblock %}
+
+{% block contenuSituation %}
+
+
+    {{ include('situation/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a class="btn btn-outline-primary bg-gradient-info" href="{{ path('situation_index') }}"><- Retour </a>
+
+    {{ include('situation/_delete_form.html.twig') }}
+{% endblock %}
